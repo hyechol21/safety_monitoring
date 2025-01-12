@@ -26,7 +26,6 @@ class SquarePad:
         padim = Image.fromarray(padX, 'RGB') # 데이터를 이미지 객체로 변환
         return padim
 
-
 def preprocess(image_size):
     transform = transforms.Compose([
         transforms.ToPILImage(),
@@ -50,7 +49,6 @@ class Classify:
         self.model = self.load_model(model_name, weight, len(labels_map))
         self.tfms = preprocess(self.image_size)
 
-
     def load_model(self, model_name, weight, num_classes):
         if model_name.find("lite") != -1:  # lite 버전인 경우
             print('lite 버전!!!')
@@ -68,7 +66,6 @@ class Classify:
             self.image_size = model.input_image_size
         print(self.image_size)
         return model
-
 
     def predict_image_cv2(self, roi):
         # apply transforms to the input image
