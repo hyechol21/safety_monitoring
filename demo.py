@@ -181,7 +181,6 @@ class ThreadOutput(threading.Thread):
                         else:
                             color = (255,255,255)
                             pstring = ''
-
                         # pstring = label + ": " + str(np.rint(100 * confidence)) + "%"
                         cv2.rectangle(frame, (xmin, ymin), (xmax, ymax), color, 2)
                         cv2.putText(frame, pstring, (xmin, ymin - 12), cv2.FONT_HERSHEY_DUPLEX, 0.6, color, 2)
@@ -203,13 +202,11 @@ class ThreadOutput(threading.Thread):
 
 if __name__=='__main__':
     cctv = './video/1.avi'
-
     # define classify
     labels_map = ["helmet", "no helmet", "unknown"]
 
     model_name = 'efficientnet-lite2'
     weight = './weights/helmet.pt'
-
 
     flag = True
 
